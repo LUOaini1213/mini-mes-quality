@@ -1,0 +1,42 @@
+{"id": "d01", "split": "dev", "question": "How long must a solder paste jar warm up before it is opened?", "answerable": true, "gold_doc": "SOP-PRN-001", "gold_section": "2", "answer_keys": ["4 hours"]}
+{"id": "d02", "split": "dev", "question": "What is the allowed peak board temperature during reflow?", "answerable": true, "gold_doc": "SOP-RFL-003", "gold_section": "2", "answer_keys": ["235", "245"]}
+{"id": "d03", "split": "dev", "question": "How many golden boards with known defects are used in the daily AOI check?", "answerable": true, "gold_doc": "SOP-AOI-004", "gold_section": "3", "answer_keys": ["5 boards with known defects"]}
+{"id": "d04", "split": "dev", "question": "Who is allowed to release a lot from hold?", "answerable": true, "gold_doc": "WI-MES-005", "gold_section": "5", "answer_keys": ["quality engineer"]}
+{"id": "d05", "split": "dev", "question": "What torque is used for the busbar screws?", "answerable": true, "gold_doc": "SOP-BAT-007", "gold_section": "4", "answer_keys": ["4.0 N m"]}
+{"id": "d06", "split": "dev", "question": "How often are the vacuum nozzles of the placement machines replaced?", "answerable": true, "gold_doc": "SOP-MNT-008", "gold_section": "2", "answer_keys": ["500,000 picks"]}
+{"id": "d07", "split": "dev", "question": "What relative humidity range is required in the ESD area?", "answerable": true, "gold_doc": "SOP-ESD-009", "gold_section": "3", "answer_keys": ["30 and 70 percent"]}
+{"id": "d08", "split": "dev", "question": "What is the solder pot temperature for the wave soldering machine?", "answerable": false}
+{"id": "d09", "split": "dev", "question": "How many operators are needed to run the reflow oven?", "answerable": false}
+{"id": "d10", "split": "dev", "question": "What is the warranty period of the battery module?", "answerable": false}
+{"id": "t01", "split": "test", "question": "What temperature range should unopened solder paste be kept at?", "answerable": true, "gold_doc": "SOP-PRN-001", "gold_section": "2", "answer_keys": ["2 to 10 degC"]}
+{"id": "t02", "split": "test", "question": "How long can paste stay on the stencil before it has to be thrown away?", "answerable": true, "gold_doc": "SOP-PRN-001", "gold_section": "2", "answer_keys": ["8 hours"]}
+{"id": "t03", "split": "test", "question": "How often is the underside of the stencil cleaned?", "answerable": true, "gold_doc": "SOP-PRN-001", "gold_section": "4", "answer_keys": ["every 10 prints"]}
+{"id": "t04", "split": "test", "question": "What happens after three SPI failures in a row?", "answerable": true, "gold_doc": "SOP-PRN-001", "gold_section": "5", "answer_keys": ["stop the printer"]}
+{"id": "t05", "split": "test", "question": "When does a pick-and-place operator have to call maintenance for a head calibration?", "answerable": true, "gold_doc": "SOP-PNP-002", "gold_section": "5", "answer_keys": ["twice within one shift"]}
+{"id": "t06", "split": "test", "question": "What is the floor life of a level 3 moisture-sensitive part after its dry pack is opened?", "answerable": true, "gold_doc": "SOP-PNP-002", "gold_section": "6", "answer_keys": ["168 hours"]}
+{"id": "t07", "split": "test", "question": "Which board of a work order needs a first-article inspection on the placement machine?", "answerable": true, "gold_doc": "SOP-PNP-002", "gold_section": "4", "answer_keys": ["first board"]}
+{"id": "t08", "split": "test", "question": "What is the allowed time above liquidus in the reflow profile?", "answerable": true, "gold_doc": "SOP-RFL-003", "gold_section": "2", "answer_keys": ["45 to 75 seconds"]}
+{"id": "t09", "split": "test", "question": "How often is the reflow profile checked with the profiler board?", "answerable": true, "gold_doc": "SOP-RFL-003", "gold_section": "3", "answer_keys": ["once per day"]}
+{"id": "t10", "split": "test", "question": "What oxygen level is allowed in the reflow tunnel in nitrogen mode?", "answerable": true, "gold_doc": "SOP-RFL-003", "gold_section": "4", "answer_keys": ["1000 ppm"]}
+{"id": "t11", "split": "test", "question": "Within what time must an AOI FAIL call be reviewed?", "answerable": true, "gold_doc": "SOP-AOI-004", "gold_section": "4", "answer_keys": ["30 minutes"]}
+{"id": "t12", "split": "test", "question": "Can a line operator change an AOI FAIL result to PASS?", "answerable": true, "gold_doc": "SOP-AOI-004", "gold_section": "4", "answer_keys": ["may not override"]}
+{"id": "t13", "split": "test", "question": "How long are AOI inspection images kept?", "answerable": true, "gold_doc": "SOP-AOI-004", "gold_section": "6", "answer_keys": ["90 days"]}
+{"id": "t14", "split": "test", "question": "How many times may a defective unit be repaired?", "answerable": true, "gold_doc": "SOP-AOI-004", "gold_section": "5", "answer_keys": ["at most twice"]}
+{"id": "t15", "split": "test", "question": "At which point in the route may a lot be split?", "answerable": true, "gold_doc": "WI-MES-005", "gold_section": "3", "answer_keys": ["after the PLACE step"]}
+{"id": "t16", "split": "test", "question": "What is the maximum number of units in a released lot?", "answerable": true, "gold_doc": "WI-MES-005", "gold_section": "2", "answer_keys": ["96 units"]}
+{"id": "t17", "split": "test", "question": "What conditions must be met before two lots can be merged?", "answerable": true, "gold_doc": "WI-MES-005", "gold_section": "4", "answer_keys": ["same work order", "AOI step"]}
+{"id": "t18", "split": "test", "question": "When is a nonconformance report opened because of the defect rate?", "answerable": true, "gold_doc": "SOP-QA-006", "gold_section": "2", "answer_keys": ["twice the baseline", "two consecutive hours"]}
+{"id": "t19", "split": "test", "question": "How quickly must the quality engineer be told about a new NCR?", "answerable": true, "gold_doc": "SOP-QA-006", "gold_section": "3", "answer_keys": ["within 1 hour"]}
+{"id": "t20", "split": "test", "question": "Can a factor that is only used at the same time as the real cause be accepted as the root cause?", "answerable": true, "gold_doc": "SOP-QA-006", "gold_section": "4", "answer_keys": ["not a root cause"]}
+{"id": "t21", "split": "test", "question": "What voltage window must a cell be in before assembly?", "answerable": true, "gold_doc": "SOP-BAT-007", "gold_section": "2", "answer_keys": ["3.55 and 3.65 V"]}
+{"id": "t22", "split": "test", "question": "What is the minimum insulation resistance at the end-of-line test?", "answerable": true, "gold_doc": "SOP-BAT-007", "gold_section": "5", "answer_keys": ["100 megohm"]}
+{"id": "t23", "split": "test", "question": "How many boards are run to requalify equipment after maintenance?", "answerable": true, "gold_doc": "SOP-MNT-008", "gold_section": "4", "answer_keys": ["5 boards"]}
+{"id": "t24", "split": "test", "question": "When must the ESD wrist strap test be repeated?", "answerable": true, "gold_doc": "SOP-ESD-009", "gold_section": "2", "answer_keys": ["start of every shift", "after every break"]}
+{"id": "t25", "split": "test", "question": "Which solder paste supplier is approved for this line?", "answerable": false}
+{"id": "t26", "split": "test", "question": "What conveyor speed in cm per minute is set on the reflow oven?", "answerable": false}
+{"id": "t27", "split": "test", "question": "How long is the cure time for the conformal coating?", "answerable": false}
+{"id": "t28", "split": "test", "question": "What is the maximum charging current during module formation?", "answerable": false}
+{"id": "t29", "split": "test", "question": "How many hours of training does an AOI inspector need before getting review authorisation?", "answerable": false}
+{"id": "t30", "split": "test", "question": "What is the X-ray voiding limit for BGA solder joints?", "answerable": false}
+{"id": "t31", "split": "test", "question": "What is the shelf life of an unopened solder paste jar in the refrigerator?", "answerable": false}
+{"id": "t32", "split": "test", "question": "Which torque is used for the screws of the AOI camera mount?", "answerable": false}

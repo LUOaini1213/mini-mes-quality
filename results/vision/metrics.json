@@ -1,0 +1,169 @@
+{
+  "config": {
+    "categories": [
+      "pcb1",
+      "pcb4"
+    ],
+    "image_size": 256,
+    "bank_images": 400,
+    "val_images": 100,
+    "coreset_ratio": 0.1,
+    "threshold_quantile": 0.95,
+    "knn_k": 5,
+    "batch_size": 4,
+    "gpu_mem_fraction": 0.35,
+    "seed": 0
+  },
+  "dataset": "VisA (1cls split)",
+  "categories": {
+    "pcb1": {
+      "meta": {
+        "category": "pcb1",
+        "n_train_available": 904,
+        "n_bank_images": 400,
+        "n_val_images": 100,
+        "n_test": 200,
+        "n_test_anomalous": 100,
+        "memory_bank_patches": 40960,
+        "candidate_patches": 409600,
+        "feature_map": [
+          32,
+          32
+        ],
+        "feature_dim": 1024,
+        "seconds": 391.1,
+        "device": "cuda"
+      },
+      "methods": {
+        "patchcore_lite": {
+          "image_auroc": 0.9496,
+          "pixel_auroc": 0.9968656769444094,
+          "aupro_0_3": 0.9292523087095103,
+          "at_threshold": {
+            "threshold": 0.9574041962623596,
+            "tp": 91,
+            "fn": 9,
+            "fp": 11,
+            "tn": 89,
+            "tpr": 0.91,
+            "fpr": 0.11
+          },
+          "val_normal_fpr": 0.05
+        },
+        "global_knn": {
+          "image_auroc": 0.7954,
+          "pixel_auroc": null,
+          "aupro_0_3": null,
+          "at_threshold": {
+            "threshold": 0.23627763986587524,
+            "tp": 53,
+            "fn": 47,
+            "fp": 10,
+            "tn": 90,
+            "tpr": 0.53,
+            "fpr": 0.1
+          },
+          "val_normal_fpr": 0.05
+        },
+        "pixel_zscore": {
+          "image_auroc": 0.7584,
+          "pixel_auroc": 0.7987314920056887,
+          "aupro_0_3": 0.354883996207473,
+          "at_threshold": {
+            "threshold": 8.850708961486816,
+            "tp": 28,
+            "fn": 72,
+            "fp": 8,
+            "tn": 92,
+            "tpr": 0.28,
+            "fpr": 0.08
+          },
+          "val_normal_fpr": 0.05
+        }
+      }
+    },
+    "pcb4": {
+      "meta": {
+        "category": "pcb4",
+        "n_train_available": 904,
+        "n_bank_images": 400,
+        "n_val_images": 100,
+        "n_test": 201,
+        "n_test_anomalous": 100,
+        "memory_bank_patches": 40960,
+        "candidate_patches": 409600,
+        "feature_map": [
+          32,
+          32
+        ],
+        "feature_dim": 1024,
+        "seconds": 804.5,
+        "device": "cuda"
+      },
+      "methods": {
+        "patchcore_lite": {
+          "image_auroc": 0.991980198019802,
+          "pixel_auroc": 0.98503355630728,
+          "aupro_0_3": 0.870332640710297,
+          "at_threshold": {
+            "threshold": 0.9307734370231628,
+            "tp": 98,
+            "fn": 2,
+            "fp": 11,
+            "tn": 90,
+            "tpr": 0.98,
+            "fpr": 0.10891089108910891
+          },
+          "val_normal_fpr": 0.05
+        },
+        "global_knn": {
+          "image_auroc": 0.8592079207920792,
+          "pixel_auroc": null,
+          "aupro_0_3": null,
+          "at_threshold": {
+            "threshold": 0.2768370807170868,
+            "tp": 36,
+            "fn": 64,
+            "fp": 10,
+            "tn": 91,
+            "tpr": 0.36,
+            "fpr": 0.09900990099009901
+          },
+          "val_normal_fpr": 0.05
+        },
+        "pixel_zscore": {
+          "image_auroc": 0.868019801980198,
+          "pixel_auroc": 0.7910935424401234,
+          "aupro_0_3": 0.33165947338120305,
+          "at_threshold": {
+            "threshold": 7.7518792152404785,
+            "tp": 28,
+            "fn": 72,
+            "fp": 7,
+            "tn": 94,
+            "tpr": 0.28,
+            "fpr": 0.06930693069306931
+          },
+          "val_normal_fpr": 0.05
+        }
+      }
+    }
+  },
+  "mean": {
+    "patchcore_lite": {
+      "image_auroc": 0.970790099009901,
+      "pixel_auroc": 0.9909496166258447,
+      "aupro_0_3": 0.8997924747099036
+    },
+    "global_knn": {
+      "image_auroc": 0.8273039603960396,
+      "pixel_auroc": null,
+      "aupro_0_3": null
+    },
+    "pixel_zscore": {
+      "image_auroc": 0.813209900990099,
+      "pixel_auroc": 0.7949125172229061,
+      "aupro_0_3": 0.34327173479433803
+    }
+  }
+}

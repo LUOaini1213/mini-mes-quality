@@ -1,0 +1,8 @@
+# CI: torch (CPU) is installed separately from the official PyTorch CPU index; no torchvision, no embedding model
+numpy==2.4.6
+pandas==3.0.6
+scipy==1.17.1
+scikit-learn==1.9.1
+pillow==12.3.0
+matplotlib==3.11.2
+pytest==9.1.1

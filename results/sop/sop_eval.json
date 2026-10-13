@@ -1,0 +1,80 @@
+{
+  "question_file_sha256": "caf266810d93dbad19f94274fabd37fb8ae056e6b4bf2d1a1f3ca4d3d9a00904",
+  "matches_frozen_hash": true,
+  "n_dev": 10,
+  "n_test": 32,
+  "systems": {
+    "hybrid": {
+      "mode": "hybrid",
+      "thresholds": {
+        "refuse_dense": 0.6756455,
+        "refuse_oov": 0.34,
+        "dev_accuracy": 1.0,
+        "n_dev": 10,
+        "grid_points": 50
+      },
+      "retrieval_test": {
+        "bm25": {
+          "n": 24,
+          "hit_at_1": 0.9583333333333334,
+          "hit_at_3": 1.0,
+          "mrr": 0.9791666666666666
+        },
+        "dense": {
+          "n": 24,
+          "hit_at_1": 0.9583333333333334,
+          "hit_at_3": 0.9583333333333334,
+          "mrr": 0.96875
+        },
+        "hybrid": {
+          "n": 24,
+          "hit_at_1": 0.9583333333333334,
+          "hit_at_3": 1.0,
+          "mrr": 0.9722222222222222
+        }
+      },
+      "answers_test": {
+        "n": 32,
+        "n_answerable": 24,
+        "n_unanswerable": 8,
+        "accuracy": 0.8125,
+        "answerable_correct": 0.7916666666666666,
+        "answerable_refused": 0.125,
+        "answerable_answered_wrong": 0.08333333333333333,
+        "unanswerable_refused": 0.875,
+        "unanswerable_answered": 0.125,
+        "verbatim_support_of_answers": 1.0
+      }
+    },
+    "bm25_only": {
+      "mode": "bm25",
+      "thresholds": {
+        "refuse_dense": 0.0,
+        "refuse_oov": 0.34,
+        "dev_accuracy": 0.9,
+        "n_dev": 10,
+        "grid_points": 5
+      },
+      "retrieval_test": {
+        "bm25": {
+          "n": 24,
+          "hit_at_1": 0.9583333333333334,
+          "hit_at_3": 1.0,
+          "mrr": 0.9791666666666666
+        }
+      },
+      "answers_test": {
+        "n": 32,
+        "n_answerable": 24,
+        "n_unanswerable": 8,
+        "accuracy": 0.75,
+        "answerable_correct": 0.8333333333333334,
+        "answerable_refused": 0.041666666666666664,
+        "answerable_answered_wrong": 0.125,
+        "unanswerable_refused": 0.5,
+        "unanswerable_answered": 0.5,
+        "verbatim_support_of_answers": 1.0
+      }
+    }
+  }
+}

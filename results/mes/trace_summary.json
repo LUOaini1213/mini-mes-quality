@@ -1,0 +1,406 @@
+{
+  "truth": [
+    "PLACE.equipment=PNP-02 & PLACE.shift=C",
+    "PRINT.material=SP-B07"
+  ],
+  "traps": {
+    "PLACE.operator=OP-009": "PLACE.equipment=PNP-02 & PLACE.shift=C",
+    "REFLOW.equipment=RFL-01": "PRINT.material=SP-B07"
+  },
+  "generator_defaults": {
+    "seed": 7,
+    "days": 42,
+    "wo_per_day": 2.5,
+    "wo_qty": [
+      48,
+      144
+    ],
+    "max_lot": 96,
+    "split_prob": 0.45,
+    "base_defect": 0.02,
+    "lot_noise_sd": 0.004,
+    "drift_start_day": 10,
+    "drift_max_add": 0.22,
+    "bad_batch": "SP-B07",
+    "bad_batch_add": 0.12,
+    "bad_batch_hours": 60.0,
+    "bad_window_prn01_share": 0.7,
+    "trap_operator": "OP-009",
+    "trap_operator_share": 0.7
+  },
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "primary_seed": 7,
+  "primary": {
+    "oracle": {
+      "seed": 7,
+      "mode": "oracle",
+      "obs": {
+        "n_units": 10336,
+        "true_defect_rate": 0.03260448916408669,
+        "observed_fail_rate": 0.03260448916408669,
+        "inspection_tpr": 1.0,
+        "inspection_fpr": 0.0,
+        "reuse_factor": null
+      },
+      "score": {
+        "truth": [
+          "PLACE.equipment=PNP-02 & PLACE.shift=C",
+          "PRINT.material=SP-B07"
+        ],
+        "recovered": [
+          "PLACE.equipment=PNP-02 & PLACE.shift=C",
+          "PRINT.material=SP-B07"
+        ],
+        "missed": [],
+        "selected": [
+          "PRINT.material=SP-B07",
+          "PLACE.equipment=PNP-02 & PLACE.shift=C"
+        ],
+        "selected_false_leads": {},
+        "screened": [
+          "PLACE.equipment=PNP-02 & PLACE.shift=C",
+          "PRINT.material=SP-B07",
+          "PLACE.operator=OP-009",
+          "PLACE.equipment=PNP-02",
+          "REFLOW.operator=OP-009",
+          "PLACE.shift=C",
+          "PRINT.operator=OP-011",
+          "PRINT.material=PB-03",
+          "AOI.operator=OP-009",
+          "PRINT.material=SP-B36",
+          "PRINT.material=PB-05",
+          "AOI.operator=OP-008",
+          "PRINT.material=SP-B29",
+          "PRINT.material=SP-B28",
+          "REFLOW.equipment=RFL-01",
+          "PLACE.operator=OP-010",
+          "PRINT.material=SP-B10"
+        ],
+        "screened_false_leads": {
+          "PLACE.operator=OP-009": "planted_confounder",
+          "PLACE.equipment=PNP-02": "coarser_or_finer_than_true_cause",
+          "REFLOW.operator=OP-009": "other_false_lead",
+          "PLACE.shift=C": "coarser_or_finer_than_true_cause",
+          "PRINT.operator=OP-011": "other_false_lead",
+          "PRINT.material=PB-03": "other_false_lead",
+          "AOI.operator=OP-009": "other_false_lead",
+          "PRINT.material=SP-B36": "other_false_lead",
+          "PRINT.material=PB-05": "other_false_lead",
+          "AOI.operator=OP-008": "other_false_lead",
+          "PRINT.material=SP-B29": "other_false_lead",
+          "PRINT.material=SP-B28": "other_false_lead",
+          "REFLOW.equipment=RFL-01": "planted_confounder",
+          "PLACE.operator=OP-010": "other_false_lead",
+          "PRINT.material=SP-B10": "other_false_lead"
+        },
+        "recall": 1.0,
+        "precision": 1.0
+      },
+      "selection_log": [
+        {
+          "action": "forward",
+          "candidate": "PRINT.material=SP-B07",
+          "p_cmh": 2.4831041191659374e-28,
+          "odds_ratio": 6.261828032653029,
+          "threshold": 0.0029411764705882353,
+          "accepted": true
+        },
+        {
+          "action": "forward",
+          "candidate": "PLACE.equipment=PNP-02 & PLACE.shift=C",
+          "p_cmh": 7.748298007693786e-38,
+          "odds_ratio": 4.602215877608252,
+          "threshold": 0.003125,
+          "accepted": true
+        },
+        {
+          "action": "forward",
+          "candidate": "AOI.operator=OP-009",
+          "p_cmh": 0.013622865745357239,
+          "odds_ratio": 1.6568327355475894,
+          "threshold": 0.0033333333333333335,
+          "accepted": false
+        }
+      ],
+      "explained": {
+        "PLACE.operator=OP-009": {
+          "p_cmh": 0.6131817438373347,
+          "odds_ratio": 0.9634504823797025
+        },
+        "PLACE.equipment=PNP-02": {
+          "p_cmh": 0.6873094377201366,
+          "odds_ratio": 0.9364440389922185
+        },
+        "REFLOW.operator=OP-009": {
+          "p_cmh": 0.01631940672363478,
+          "odds_ratio": 1.6936923923154432
+        },
+        "PLACE.shift=C": {
+          "p_cmh": 0.7113252865868531,
+          "odds_ratio": 0.9165533653966407
+        },
+        "PRINT.operator=OP-011": {
+          "p_cmh": 0.19260909971449713,
+          "odds_ratio": 1.2477182442400854
+        },
+        "PRINT.material=PB-03": {
+          "p_cmh": 0.9567342421635222,
+          "odds_ratio": 0.6346639412140365
+        },
+        "AOI.operator=OP-009": {
+          "p_cmh": 0.013622865745357239,
+          "odds_ratio": 1.6568327355475894
+        },
+        "PRINT.material=SP-B36": {
+          "p_cmh": 0.3801341183380519,
+          "odds_ratio": 1.1730208200895478
+        },
+        "PRINT.material=PB-05": {
+          "p_cmh": 0.82364820499732,
+          "odds_ratio": 0.8282749094982996
+        },
+        "AOI.operator=OP-008": {
+          "p_cmh": 0.020537772754797384,
+          "odds_ratio": 1.6277887892820515
+        },
+        "PRINT.material=SP-B29": {
+          "p_cmh": 0.9442874443494929,
+          "odds_ratio": 0.6573108492673865
+        },
+        "PRINT.material=SP-B28": {
+          "p_cmh": 0.07342916479183542,
+          "odds_ratio": 1.5579464364396705
+        },
+        "REFLOW.equipment=RFL-01": {
+          "p_cmh": 0.7174850095654123,
+          "odds_ratio": 0.9339862306902873
+        },
+        "PLACE.operator=OP-010": {
+          "p_cmh": 0.022803796604036402,
+          "odds_ratio": 1.6231250590612325
+        },
+        "PRINT.material=SP-B10": {
+          "p_cmh": 0.6515663262010499,
+          "odds_ratio": 0.9260312944523471
+        }
+      }
+    },
+    "detector": {
+      "seed": 7,
+      "mode": "detector",
+      "obs": {
+        "n_units": 10336,
+        "true_defect_rate": 0.03260448916408669,
+        "observed_fail_rate": 0.13641640866873064,
+        "inspection_tpr": 0.9406528189910979,
+        "inspection_fpr": 0.10931093109310931,
+        "reuse_factor": {
+          "0": 49.74626865671642,
+          "1": 1.685
+        }
+      },
+      "score": {
+        "truth": [
+          "PLACE.equipment=PNP-02 & PLACE.shift=C",
+          "PRINT.material=SP-B07"
+        ],
+        "recovered": [
+          "PLACE.equipment=PNP-02 & PLACE.shift=C",
+          "PRINT.material=SP-B07"
+        ],
+        "missed": [],
+        "selected": [
+          "PLACE.equipment=PNP-02 & PLACE.shift=C",
+          "PRINT.material=SP-B07"
+        ],
+        "selected_false_leads": {},
+        "screened": [
+          "PLACE.equipment=PNP-02 & PLACE.shift=C",
+          "PRINT.material=SP-B07"
+        ],
+        "screened_false_leads": {},
+        "recall": 1.0,
+        "precision": 1.0
+      },
+      "selection_log": [
+        {
+          "action": "forward",
+          "candidate": "PLACE.equipment=PNP-02 & PLACE.shift=C",
+          "p_cmh": 1.9980015640040037e-08,
+          "odds_ratio": 1.5466311099704537,
+          "threshold": 0.025,
+          "accepted": true
+        },
+        {
+          "action": "forward",
+          "candidate": "PRINT.material=SP-B07",
+          "p_cmh": 1.058522839860142e-07,
+          "odds_ratio": 1.9839880335619402,
+          "threshold": 0.05,
+          "accepted": true
+        }
+      ],
+      "explained": {}
+    },
+    "table_row_counts": {
+      "product": 1,
+      "route_step": 5,
+      "equipment": 10,
+      "operator": 12,
+      "material_batch": 46,
+      "work_order": 104,
+      "lot": 394,
+      "lot_genealogy": 312,
+      "lot_step": 956,
+      "material_consumption": 320,
+      "unit": 10336,
+      "unit_lot": 20456,
+      "gt_unit": 10336,
+      "gt_cause": 2,
+      "inspection_result": 10336
+    },
+    "no_reuse": {
+      "seed": 7,
+      "mode": "no_reuse",
+      "obs": {
+        "n_units": 206,
+        "true_defect_rate": 0.024271844660194174,
+        "observed_fail_rate": 0.13106796116504854,
+        "inspection_tpr": 1.0,
+        "inspection_fpr": 0.10945273631840796,
+        "reuse_factor": {
+          "0": 1.0,
+          "1": 0.025
+        }
+      },
+      "score": {
+        "truth": [
+          "PLACE.equipment=PNP-02 & PLACE.shift=C",
+          "PRINT.material=SP-B07"
+        ],
+        "recovered": [],
+        "missed": [
+          "PLACE.equipment=PNP-02 & PLACE.shift=C",
+          "PRINT.material=SP-B07"
+        ],
+        "selected": [],
+        "selected_false_leads": {},
+        "screened": [],
+        "screened_false_leads": {},
+        "recall": 0.0,
+        "precision": NaN
+      },
+      "selection_log": [],
+      "explained": {}
+    }
+  },
+  "multi_seed": {
+    "detector": {
+      "n_seeds": 20,
+      "both_causes_recovered": 0.8,
+      "recovery_rate_by_cause": {
+        "PLACE.equipment=PNP-02 & PLACE.shift=C": 0.95,
+        "PRINT.material=SP-B07": 0.85
+      },
+      "mean_recall": 0.9,
+      "seeds_with_false_lead_selected": 0.1,
+      "mean_false_leads_selected": 0.1,
+      "mean_false_leads_screened_naive": 3.9,
+      "trap_flagged_by_naive_screen": {
+        "PLACE.operator=OP-009": 0.65,
+        "REFLOW.equipment=RFL-01": 0.1
+      },
+      "trap_selected_after_stratification": {
+        "PLACE.operator=OP-009": 0.0,
+        "REFLOW.equipment=RFL-01": 0.0
+      },
+      "mean_units": 9725.2,
+      "mean_true_defect_rate": 0.03362947613373151,
+      "mean_observed_fail_rate": 0.13749518262167476,
+      "mean_inspection_tpr": 0.9442263743059834,
+      "mean_inspection_fpr": 0.10941858602758196,
+      "false_lead_examples": [
+        "PRINT.operator=OP-012",
+        "REFLOW.operator=OP-012"
+      ]
+    },
+    "no_reuse": {
+      "n_seeds": 20,
+      "both_causes_recovered": 0.0,
+      "recovery_rate_by_cause": {
+        "PLACE.equipment=PNP-02 & PLACE.shift=C": 0.0,
+        "PRINT.material=SP-B07": 0.0
+      },
+      "mean_recall": 0.0,
+      "seeds_with_false_lead_selected": 0.05,
+      "mean_false_leads_selected": 0.05,
+      "mean_false_leads_screened_naive": 0.05,
+      "trap_flagged_by_naive_screen": {
+        "PLACE.operator=OP-009": 0.0,
+        "REFLOW.equipment=RFL-01": 0.0
+      },
+      "trap_selected_after_stratification": {
+        "PLACE.operator=OP-009": 0.0,
+        "REFLOW.equipment=RFL-01": 0.0
+      },
+      "mean_units": 208.15,
+      "mean_true_defect_rate": 0.03422093511572425,
+      "mean_observed_fail_rate": 0.1382452367789813,
+      "mean_inspection_tpr": 0.9441071428571428,
+      "mean_inspection_fpr": 0.10945273631840798,
+      "false_lead_examples": [
+        "PLACE.equipment=PNP-02"
+      ]
+    },
+    "oracle": {
+      "n_seeds": 20,
+      "both_causes_recovered": 0.95,
+      "recovery_rate_by_cause": {
+        "PLACE.equipment=PNP-02 & PLACE.shift=C": 0.95,
+        "PRINT.material=SP-B07": 1.0
+      },
+      "mean_recall": 0.975,
+      "seeds_with_false_lead_selected": 0.1,
+      "mean_false_leads_selected": 0.1,
+      "mean_false_leads_screened_naive": 18.75,
+      "trap_flagged_by_naive_screen": {
+        "PLACE.operator=OP-009": 1.0,
+        "REFLOW.equipment=RFL-01": 0.5
+      },
+      "trap_selected_after_stratification": {
+        "PLACE.operator=OP-009": 0.05,
+        "REFLOW.equipment=RFL-01": 0.0
+      },
+      "mean_units": 9725.2,
+      "mean_true_defect_rate": 0.03362947613373151,
+      "mean_observed_fail_rate": 0.03362947613373151,
+      "mean_inspection_tpr": 1.0,
+      "mean_inspection_fpr": 0.0,
+      "false_lead_examples": [
+        "PLACE.operator=OP-009",
+        "PRINT.equipment=PRN-01 & PRINT.shift=B"
+      ]
+    }
+  }
+}

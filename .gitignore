@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+build/
+*.sqlite
+# never commit dataset images or archives
+*.jpg
+*.JPG
+*.jpeg
+*.png
+*.tar
+*.tar.xz
+data/
+*.log

@@ -1,0 +1,8 @@
+{
+  "python": "3.11.5",
+  "torch": "2.5.1+cu121",
+  "cuda": true,
+  "seconds": 232.0,
+  "seeds": 20,
+  "reused_vision": true
+}

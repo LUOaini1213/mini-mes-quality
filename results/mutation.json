@@ -1,0 +1,242 @@
+{
+  "total": 26,
+  "caught": 26,
+  "not_applied": 0,
+  "mutations": [
+    {
+      "file": "mesq/stats.py",
+      "mutation": "Wilson centre",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_stats.py::test_wilson_reference_values"
+      ],
+      "seconds": 15.8
+    },
+    {
+      "file": "mesq/stats.py",
+      "mutation": "BH monotonicity",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_stats.py::test_bh_hand_example"
+      ],
+      "seconds": 17.2
+    },
+    {
+      "file": "mesq/stats.py",
+      "mutation": "Holm multipliers off by one",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_stats.py::test_holm_hand_example"
+      ],
+      "seconds": 17.4
+    },
+    {
+      "file": "mesq/stats.py",
+      "mutation": "CMH continuity correction sign",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_stats.py::test_cmh_hand_example"
+      ],
+      "seconds": 18.0
+    },
+    {
+      "file": "mesq/stats.py",
+      "mutation": "Fisher test direction",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_generator.py::test_ground_truth_recoverable_with_perfect_inspection[2]"
+      ],
+      "seconds": 19.4
+    },
+    {
+      "file": "mesq/stats.py",
+      "mutation": "Katz RR standard error",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_stats.py::test_risk_ratio_katz"
+      ],
+      "seconds": 19.4
+    },
+    {
+      "file": "mesq/db.py",
+      "mutation": "ancestor recursion joins the wrong side",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_genealogy.py::test_ancestors_through_merge_and_split"
+      ],
+      "seconds": 9.4
+    },
+    {
+      "file": "mesq/db.py",
+      "mutation": "descendant recursion joins the wrong side",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_genealogy.py::test_descendants"
+      ],
+      "seconds": 11.7
+    },
+    {
+      "file": "mesq/db.py",
+      "mutation": "inspection decision inverted",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_genealogy.py::test_factor_table_uses_genealogy"
+      ],
+      "seconds": 9.4
+    },
+    {
+      "file": "mesq/db.py",
+      "mutation": "factor table ignores genealogy (final lot only)",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_genealogy.py::test_factor_table_uses_genealogy"
+      ],
+      "seconds": 9.0
+    },
+    {
+      "file": "mesq/generator.py",
+      "mutation": "bad batch effect applied to every other batch",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_generator.py::test_injected_effects_are_in_the_probabilities"
+      ],
+      "seconds": 15.3
+    },
+    {
+      "file": "mesq/generator.py",
+      "mutation": "drift injected on the wrong shift",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_generator.py::test_injected_effects_are_in_the_probabilities"
+      ],
+      "seconds": 11.9
+    },
+    {
+      "file": "mesq/generator.py",
+      "mutation": "split puts one unit in both children",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_genealogy.py::test_each_unit_has_exactly_one_lot_per_step"
+      ],
+      "seconds": 9.4
+    },
+    {
+      "file": "mesq/trace.py",
+      "mutation": "post-inspection step treated as cause",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_trace.py::test_candidates_exclude_post_inspection_steps_and_rare_levels"
+      ],
+      "seconds": 18.7
+    },
+    {
+      "file": "mesq/trace.py",
+      "mutation": "forward step not stratified",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_generator.py::test_ground_truth_recoverable_with_perfect_inspection[2]"
+      ],
+      "seconds": 25.2
+    },
+    {
+      "file": "mesq/trace.py",
+      "mutation": "no multiplicity correction in forward step",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_trace.py::test_analyse_selects_cause_not_confounder"
+      ],
+      "seconds": 33.9
+    },
+    {
+      "file": "mesq/vision/metrics.py",
+      "mutation": "AUROC rank offset",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_metrics.py::test_auroc_matches_sklearn_with_ties"
+      ],
+      "seconds": 34.2
+    },
+    {
+      "file": "mesq/vision/metrics.py",
+      "mutation": "AUPRO not normalised",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_metrics.py::test_aupro_perfect_and_inverted"
+      ],
+      "seconds": 23.0
+    },
+    {
+      "file": "mesq/vision/models.py",
+      "mutation": "coreset picks nearest",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_vision_models.py::test_coreset_is_distinct_and_covers_clusters"
+      ],
+      "seconds": 24.1
+    },
+    {
+      "file": "mesq/vision/models.py",
+      "mutation": "kNN uses farthest neighbour",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_vision_models.py::test_nn_distance_matches_brute_force"
+      ],
+      "seconds": 25.4
+    },
+    {
+      "file": "mesq/link.py",
+      "mutation": "image label does not match unit truth",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_link.py::test_images_match_unit_truth_and_decisions_come_from_detector"
+      ],
+      "seconds": 22.8
+    },
+    {
+      "file": "mesq/link.py",
+      "mutation": "no-reuse subset enriched for defects (selection bias)",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_link.py::test_no_reuse_subset_is_not_enriched_for_defects"
+      ],
+      "seconds": 21.9
+    },
+    {
+      "file": "mesq/sop.py",
+      "mutation": "OOV refusal inverted",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_sop.py::test_answer_is_a_verbatim_clause_with_citation"
+      ],
+      "seconds": 21.5
+    },
+    {
+      "file": "mesq/sop.py",
+      "mutation": "citation points to the wrong chunk",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_sop.py::test_answer_is_a_verbatim_clause_with_citation"
+      ],
+      "seconds": 19.6
+    },
+    {
+      "file": "mesq/sop_eval.py",
+      "mutation": "answer keys: any instead of all",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_sop.py::test_is_correct_requires_keys_and_gold_citation"
+      ],
+      "seconds": 19.5
+    },
+    {
+      "file": "mesq/report.py",
+      "mutation": "README numbers not scaled to percent",
+      "status": "caught",
+      "first_failing": [
+        "tests/test_readme.py::test_readme_block_equals_rendering_of_results"
+      ],
+      "seconds": 24.6
+    }
+  ],
+  "sources_restored": true
+}
