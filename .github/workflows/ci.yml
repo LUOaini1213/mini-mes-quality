@@ -2,7 +2,11 @@ name: ci
 on: [push, pull_request]
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     env:
       MESQ_NO_DENSE: "1"        # BM25-only SOP retrieval in CI (no model download)
       OMP_NUM_THREADS: "2"
@@ -13,9 +17,21 @@ jobs:
           python-version: "3.11"
           cache: pip
       - name: Install (CPU-only torch, no dataset, no embedding model)
+        shell: bash
         run: |
           python -m pip install --upgrade pip
           pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
           pip install -r requirements-ci.txt
-      - name: Tests (synthetic fixtures + committed results/ only; no images are needed)
+      - name: Tests (synthetic fixtures + committed results; recomputes the MES and BM25-only SOP results)
         run: python -m pytest -q
+      - name: run_all.py refuses to drop the hybrid row without the embedding model
+        shell: bash
+        run: |
+          set +e
+          python run_all.py > run_all.log 2>&1
+          code=$?
+          set -e
+          cat run_all.log
+          test "$code" -ne 0
+          grep -q "Nothing was written" run_all.log
+          git diff --exit-code

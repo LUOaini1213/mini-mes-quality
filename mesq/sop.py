@@ -6,9 +6,9 @@ not available (e.g. in CI) the assistant runs BM25-only and says so in its outpu
 
 Answers are extractive: the assistant returns the numbered SOP clause that best answers the question, verbatim,
 with a citation "[DOC-ID section N]". It refuses when the question does not look covered by the documents. No LLM is
-used (see README: a local Ollama server was not already running, and the project does not start or pull models).
+used: extractive answers are supported by the documents verbatim by construction (see README, section 4).
 
-BM25, tokenisation and RRF are adapted from the owner's earlier project fm-knowledge-assistant
+BM25, tokenisation and RRF are adapted from the author's earlier project fm-knowledge-assistant
 (src/fmka/retrieval.py, same author); the dense part there used DuckDB-VSS, here plain numpy is enough.
 """
 from __future__ import annotations

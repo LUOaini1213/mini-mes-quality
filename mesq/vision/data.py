@@ -1,7 +1,7 @@
 """Image-dataset access for the visual-inspection part.
 
 Real images are NOT stored in this repository. By default the code reads VisA (Amazon, CC BY 4.0) from
-D:\\data\\visa\\raw (override with MESQ_VISA_ROOT) and uses the official one-class split file split_csv/1cls.csv.
+data/visa/raw inside the repository (git-ignored; override with MESQ_VISA_ROOT) and uses the official one-class split file split_csv/1cls.csv.
 An MVTec-AD-style folder (category/train/good, category/test/<type>, category/ground_truth/<type>/*_mask.png) is
 also supported through load_mvtec_style(), so MVTec AD can be dropped in once it has been obtained from MVTec.
 See DATA_SOURCES.md.
@@ -16,7 +16,8 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-VISA_ROOT = Path(os.environ.get("MESQ_VISA_ROOT", r"D:\data\visa\raw"))
+REPO_ROOT = Path(__file__).resolve().parents[2]
+VISA_ROOT = Path(os.environ.get("MESQ_VISA_ROOT", str(REPO_ROOT / "data" / "visa" / "raw")))
 IMAGENET_MEAN = np.array([0.485, 0.456, 0.406], dtype=np.float32)
 IMAGENET_STD = np.array([0.229, 0.224, 0.225], dtype=np.float32)
 

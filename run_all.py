@@ -1,14 +1,20 @@
 """Reproduce every result in results/ with one command:  python run_all.py
 
 Steps
-1. Visual inspection benchmark on VisA pcb1 + pcb4 (needs the dataset under D:\\data\\visa\\raw or MESQ_VISA_ROOT;
-   see DATA_SOURCES.md). Skipped with a message if the images are not present, in which case the MES part falls
-   back to a simulated detector.
+1. Visual inspection benchmark on VisA pcb1 + pcb4 (needs the dataset under data/visa/raw in this repository, or
+   set MESQ_VISA_ROOT; see DATA_SOURCES.md). Skipped with a message if the images are not present; the MES part
+   then uses the committed per-image scores in results/vision/*_scores.csv (or a simulated detector if there are
+   none).
 2. Synthetic MES generation + traceability analysis (primary seed in detail + 20 seeds summary).
-3. SOP assistant evaluation on the frozen question set.
+3. SOP assistant evaluation on the frozen question set. The hybrid system needs BAAI/bge-small-en-v1.5 in the local
+   Hugging Face cache (see README "Reproduce"). If the committed results contain a hybrid row and the model cannot
+   be loaded, run_all.py stops before writing anything, so the README never silently loses that row.
 4. README results block and results/report.html are regenerated from the JSON files.
 
-Options: --reuse-vision  reuse results/vision/*.csv instead of recomputing (saves ~15 min on a GTX 1650)
+Options: --reuse-vision  reuse results/vision/*.csv instead of recomputing (saves about 20 min on a GTX 1650:
+                         391 s + 805 s according to results/vision/metrics.json)
+         --bm25-only     run the SOP evaluation without the embedding model and accept that the hybrid row is
+                         dropped from results/ and the README
          --seeds N       number of generator seeds for the multi-seed summary (default 20)
 """
 from __future__ import annotations
@@ -31,11 +37,34 @@ RESULTS = ROOT / "results"
 BUILD = ROOT / "build"
 
 
+def check_sop_systems(results: Path = RESULTS, allow_drop: bool = False) -> None:
+    """Stop before anything is written if a SOP system in the committed results cannot be re-run here.
+
+    Without this, a missing embedding model makes sop_eval skip the hybrid system and report.write_all rewrites the
+    README without the hybrid row."""
+    p = results / "sop" / "sop_eval.json"
+    committed = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    if allow_drop or "hybrid" not in committed.get("systems", {}):
+        return
+    from mesq.sop import EMBED_MODEL, _load_embedder
+    if _load_embedder() is None:
+        raise SystemExit(
+            f"[run_all] the committed results contain the hybrid SOP system, but {EMBED_MODEL} cannot be loaded "
+            "(MESQ_NO_DENSE is set, sentence-transformers is missing, or the model is not in the local Hugging Face "
+            "cache). Nothing was written. Download the model once (see README 'Reproduce') or pass --bm25-only to "
+            "accept dropping the hybrid row.")
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--reuse-vision", action="store_true")
     ap.add_argument("--seeds", type=int, default=20)
+    ap.add_argument("--bm25-only", action="store_true",
+                    help="evaluate the SOP assistant without the embedding model (drops the hybrid row)")
     args = ap.parse_args(argv)
+    if args.bm25_only:
+        os.environ["MESQ_NO_DENSE"] = "1"
+    check_sop_systems(RESULTS, allow_drop=args.bm25_only)
 
     import pandas as pd
     import torch
