@@ -4,8 +4,9 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+SELF = Path(__file__).resolve()                    # holds sample paths for the pattern self-test
 
-# Built from pieces so that this file does not match itself.
+# This file itself is skipped by find_local_paths (its self-test holds sample paths).
 DRIVE = r"(?<![A-Za-z0-9])[A-Za-z]:(?:\\\\|\\|/)(?!/)[A-Za-z0-9_.$~-]"
 HOME = r"(?:[Cc]:[\\/]+Users|/home|/Users)[\\/]+[A-Za-z0-9_.-]+"
 PATTERN = re.compile(DRIVE + "|" + HOME)
@@ -24,7 +25,7 @@ def tracked_files():
 def find_local_paths(files):
     hits = []
     for p in files:
-        if p.suffix.lower() not in TEXT_SUFFIXES or not p.exists():
+        if p.resolve() == SELF or p.suffix.lower() not in TEXT_SUFFIXES or not p.exists():
             continue
         for i, line in enumerate(p.read_text(encoding="utf-8", errors="replace").splitlines(), 1):
             if PATTERN.search(line):
